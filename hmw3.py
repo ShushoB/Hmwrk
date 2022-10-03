@@ -74,5 +74,31 @@ for a in di:
     
     
  #7
-
+import random 
+raw = 5 
+matrix = [[random.randint(1, 5) for i in range(raw)] for j in range(raw)] 
+  
+myset = set() 
+for i in range(raw): 
+     for j in range(raw): 
+         myset.add(matrix[i][j]) 
+mydict = {} 
+for mykey in myset: 
+     count = 0 
+     for i in range(raw): 
+         for j in range(raw): 
+             if mykey == matrix[i][j]: 
+                 count += 1 
+     mydict[mykey] = count 
+print("This is how many times the numbers occur:") 
+print(mydict) 
+  
+ls_values = list(mydict.values()) 
+ls_values.sort() 
+ls_values = ls_values[-3:] 
+print("Most common numbers are:") 
+for i in ls_values: 
+     for j in mydict.keys(): 
+         if mydict[j] == i: 
+             print(str(j) + " : " + str(mydict[j]))
 
